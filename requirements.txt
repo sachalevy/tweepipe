@@ -14,3 +14,4 @@ pandas
 jsonlines
 searchtweets-v2
 slackclient
+furo==2021.11.16
