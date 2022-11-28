@@ -1,0 +1,16 @@
+loguru
+tqdm
+pymongo
+omegaconf
+tweepy
+joblib
+numpy
+xgboost
+regex
+requests
+requests-oauthlib
+bson
+pandas
+jsonlines
+searchtweets-v2
+slackclient

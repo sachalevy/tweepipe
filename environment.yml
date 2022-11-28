@@ -1,0 +1,41 @@
+name: tweepipe
+
+channels:
+  - complexdatalab
+  - anaconda
+  - conda-forge
+  - defaults
+
+dependencies:
+  # core project dependencies
+  - python>=3.8
+  - pip
+  - loguru
+  - tqdm
+  - tweepy
+  - omegaconf
+  - joblib
+  - numpy
+  - xgboost
+  - regex
+  - requests
+  - requests-oauthlib
+  - pandas
+
+  # development dependencies
+  - black
+  - python-dotenv
+  - conda-smithy
+  - pytest
+  - pytest-ordering
+  - conda-build
+  - watchdog
+  - selenium
+  - semver
+
+  - pip:
+      - jsonlines
+      - slack_sdk
+      - pymongo
+      - google-api-python-client
+      - google-auth-oauthlib

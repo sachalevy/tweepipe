@@ -1,0 +1,1 @@
+python -m pytest tests/* -x  -v -s --full-trace

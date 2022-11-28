@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>scripts.upload package &#8212; snpipeline 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="scripts.usc_data package" href="scripts.usc_data.html" />
+    <link rel="prev" title="scripts.twitter_credentials package" href="scripts.twitter_credentials.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="scripts-upload-package">
+<h1>scripts.upload package<a class="headerlink" href="#scripts-upload-package" title="Permalink to this headline">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-scripts.upload.extract_relation">
+<span id="scripts-upload-extract-relation-module"></span><h2>scripts.upload.extract_relation module<a class="headerlink" href="#module-scripts.upload.extract_relation" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.upload.extract_relation.retrieve_content_from_tweet">
+<span class="sig-prename descclassname"><span class="pre">scripts.upload.extract_relation.</span></span><span class="sig-name descname"><span class="pre">retrieve_content_from_tweet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tweet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_conn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'standard'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#scripts.upload.extract_relation.retrieve_content_from_tweet" title="Permalink to this definition">¶</a></dt>
+<dd><p>By default do not extract tweets or users to make the process faster.</p>
+</dd></dl>
+
+</section>
+<section id="module-scripts.upload.labelled_20k_tweets">
+<span id="scripts-upload-labelled-20k-tweets-module"></span><h2>scripts.upload.labelled_20k_tweets module<a class="headerlink" href="#module-scripts.upload.labelled_20k_tweets" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="scripts.upload.labelled_20k_tweets.RawJsonListParser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">scripts.upload.labelled_20k_tweets.</span></span><span class="sig-name descname"><span class="pre">RawJsonListParser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">IO</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#scripts.upload.labelled_20k_tweets.RawJsonListParser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Iterate over a json document from a file descriptor. It is assumed that the
+file is structured a list of dicts, each dict being the lowest level structure to parse.
+Individual dicts are parsed based on curly braces indentation. Lines begining with <cite>},{</cite>
+are identified as begining of a new document.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fd</strong> (<em>typing.IO</em>) – Open file to read raw json from.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.upload.labelled_20k_tweets.RawJsonListParser.clean_line">
+<span class="sig-name descname"><span class="pre">clean_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#scripts.upload.labelled_20k_tweets.RawJsonListParser.clean_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Preprocess line string for end of tweet checker.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>line</strong> (<em>str</em>) – string line</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>processed line string</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.upload.labelled_20k_tweets.main">
+<span class="sig-prename descclassname"><span class="pre">scripts.upload.labelled_20k_tweets.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#scripts.upload.labelled_20k_tweets.main" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-scripts.upload">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-scripts.upload" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">snpipeline</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="snpipeline.html">snpipeline package</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="scripts.html">scripts package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="scripts.html#subpackages">Subpackages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripts.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripts.html#module-scripts.get_remaining">scripts.get_remaining module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripts.html#scripts-parse-seed-users-csv-module">scripts.parse_seed_users_csv module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripts.html#module-scripts">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="scripts.html">scripts package</a><ul>
+      <li>Previous: <a href="scripts.twitter_credentials.html" title="previous chapter">scripts.twitter_credentials package</a></li>
+      <li>Next: <a href="scripts.usc_data.html" title="next chapter">scripts.usc_data package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Sacha Lévy.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.3.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/scripts.upload.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
