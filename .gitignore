@@ -5,6 +5,7 @@
 ### dotenv ###
 *followers/*
 .env
+.vscode
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
